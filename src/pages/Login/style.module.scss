@@ -1,0 +1,31 @@
+.signup {
+  padding: 100px ;
+  .container {
+	max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    border-radius: 20px;
+    background-color: rgb(193, 195, 255);
+    padding: 30px;
+    input {
+      border-radius: 10px;
+      padding: 10px 15px;
+      font-size: 20px;
+      outline: none;
+      border: none;
+    }
+    button {
+      align-self: flex-end;
+      padding: 15px;
+      background-color: blue;
+      color: white;
+      font-weight: 600;
+      border-radius: 10px;
+	  cursor: pointer;
+	  &:hover{
+		background-color: rgba(0, 0, 255, 0.502);
+	  }
+    }
+  }
+}

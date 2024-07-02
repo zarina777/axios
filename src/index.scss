@@ -1,0 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style-type: none;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.active{
+  box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.489);
+  background-color: rgb(33, 53, 132);
+}
+
+input,button,select{
+  outline: none;
+  border:none;
+}

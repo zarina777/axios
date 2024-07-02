@@ -13,18 +13,6 @@
       }
     },
     {
-      "id": "2",
-      "title": "Mens Casual Premium Slim Fit T-Shirts ",
-      "price": "24.3",
-      "description": "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
-      "category": "men's clothing",
-      "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
-      "rating": {
-        "rate": 4.1,
-        "count": 259
-      }
-    },
-    {
       "id": "4",
       "title": "Mens Casual Slim Fit",
       "price": "19.99",
@@ -39,9 +27,9 @@
     {
       "id": "6",
       "title": "Solid Gold Petite Micropave ",
-      "price": 168,
+      "price": "16.4",
       "description": "Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.",
-      "category": "jewelery",
+      "category": "women's clothing",
       "image": "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
       "rating": {
         "rate": 3.9,
@@ -176,31 +164,10 @@
       "image": "data:image/jpeg;base64,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"
     },
     {
-      "id": "27f6",
-      "title": "lknn.dWN",
-      "price": "NNN",
-      "category": "jewelery",
-      "image": ""
-    },
-    {
-      "id": "056f",
-      "title": "",
+      "id": "47f1",
+      "title": "hello",
       "price": "",
-      "category": "women's clothing",
-      "image": ""
-    },
-    {
-      "id": "b7f2",
-      "title": "mtyxyxty",
-      "price": "bblh",
-      "category": "women's clothing",
-      "image": ""
-    },
-    {
-      "id": "fad5",
-      "title": "sasd",
-      "price": "",
-      "category": "women's clothing",
+      "category": "men's clothing",
       "image": ""
     }
   ],

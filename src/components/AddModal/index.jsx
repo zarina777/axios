@@ -38,6 +38,7 @@ const AddModal = () => {
       setData((prev) => {
         return [...prev, res.data];
       });
+      setCopyData(prev=>[...prev,res.data])
       toast.success("New product is added!");
     });
     setShowAddModal(false);

@@ -12,6 +12,7 @@ function ContextProvide(props) {
   let [user, setUser] = useState(null);
   let [table, setTable] = useState(false);
   let [copyData, setCopyData] = useState([]);
+  let flexData = [];
   let [productCat, setProductCat] = useState("all");
 
   function Logout(input) {
@@ -37,6 +38,7 @@ function ContextProvide(props) {
         setCopyData,
         productCat,
         setProductCat,
+        flexData,
       }}
     >
       {children}

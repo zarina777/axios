@@ -9,28 +9,52 @@ import EditModal from "../EditModal";
 import cn from "./style.module.scss";
 
 const Products = () => {
-  let { setShowEditModal, setObj, obj, setData, data } =
+  let { setShowEditModal, setObj, obj, setData, data, setCopyData,productCat,copyData } =
     useContext(GeneralContext);
+    
   function deleteProduct(event, id) {
     event.stopPropagation();
     Instance.delete(`/products/${id}`)
-      .then(() => {
+      .then((el) => {
+
+        // if (productCat == "all") {
+        //    setData((prev) => {
+        //   let newData = prev.filter((e) => {
+        //     return e.id !== el.data.id;
+        //   });
+        //   return newData;
+        // });
+        //   setCopyData(...data);
+        // } else {
+        //   setCopyData(...data);
+        //   let newData = copyData.filter((el) => {
+        //     return el.category == productCat;
+        //   });
+        //   setData(newData);
+        // }
+
+        if(productCat=='all'){
+          setData((prev) => {
+            let newData = prev.filter((e) => {
+              return e.id !== el.data.id;
+            });
+            return newData;
+          });
+          setCopyData(...data)
+        }else{
+          setCopyData(...data)
+
+        }
+        // setCopyData(...data);
+
         toast("Data is deleted");
       })
       .catch((er) => console.log(er));
-    setData((prev) => {
-      let newData = prev.filter((el) => {
-        return el.id !== id;
-      });
-      return newData;
-    });
-    console.log(data);
   }
   function editProduct(event, el) {
     event.stopPropagation();
     setShowEditModal(true);
     setObj(el);
-    console.log(obj);
   }
   return (
     <div className={cn.products}>

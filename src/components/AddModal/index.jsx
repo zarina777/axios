@@ -6,8 +6,14 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import cn from "./style.module.scss";
 const AddModal = () => {
-  let { showAddModal, setShowAddModal, setData, setCopyData } =
-    useContext(GeneralContext);
+  let {
+    showAddModal,
+    setShowAddModal,
+    setData,
+    copyData,
+    setCopyData,
+    productCat,
+  } = useContext(GeneralContext);
   let [categories, setCategories] = useState([]);
 
   let title = useRef();
@@ -35,9 +41,19 @@ const AddModal = () => {
       category: category.current.value,
       image: image.current.value,
     }).then((res) => {
-      setData((prev) => {
-        return [...prev, res.data];
-      });
+      if (productCat == "all") {
+        setData((prev) => {
+          return [...prev, res.data];
+        });
+        setCopyData((prev) => [...prev, res.data]);
+      } else {
+        setCopyData((prev) => [...prev, res.data]);
+        let newData = copyData.filter((el) => {
+          return el.category == productCat;
+        });
+        setData(newData);
+      }
+
       toast.success("New product is added!");
     });
     setShowAddModal(false);

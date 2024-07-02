@@ -1,19 +1,31 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useRef, useContext, useEffect, useState } from "react";
+import { Outlet } from "react-router-dom";
+import { GeneralContext } from "../../context";
+import { ToastContainer } from "react-toastify";
+
+import instance from "../../api";
+
 import Container from "../../components/Container";
 import AddModal from "../../components/AddModal";
 import Products from "../../components/Products";
-import instance from "../../api";
-import cn from "./style.module.scss";
-import { GeneralContext } from "../../context";
-import { ToastContainer } from "react-toastify";
-import Instance from "../../api";
-import { Outlet } from "react-router-dom";
 import Table from "../../components/table";
-import { useRef } from "react";
+
+import cn from "./style.module.scss";
+
 const Admin = () => {
   let [load, setLoad] = useState(true);
-  const { setShowAddModal, table, setTable, setData, copyData, setCopyData } =
-    useContext(GeneralContext);
+  const {
+    setShowAddModal,
+    table,
+    setTable,
+    setData,
+    copyData,
+    setCopyData,
+    productCat,
+    setProductCat,
+    flexData,
+    data
+  } = useContext(GeneralContext);
   let [categories, setCategories] = useState([]);
   let selection = useRef();
   useEffect(() => {
@@ -22,6 +34,7 @@ const Admin = () => {
       .then((data) => {
         setData(data.data);
         setCopyData(data.data);
+        flexData=data.data
         setLoad(false);
       })
       .catch((err) => {
@@ -31,7 +44,8 @@ const Admin = () => {
   }, []);
 
   useEffect(() => {
-    Instance.get("/category")
+    instance
+      .get("/category")
       .then((data) => {
         setCategories(data.data);
       })
@@ -39,15 +53,19 @@ const Admin = () => {
   });
 
   function selecting(e) {
-    if (e.target.value == "all") {
-      setData(copyData);
+    setProductCat(e.target.value);
+  }
+
+  useEffect(() => {
+    if (productCat == "all") {
+      setData(data);
     } else {
       let newData = copyData.filter((el) => {
-        return el.category == e.target.value;
+        return el.category == productCat;
       });
       setData(newData);
     }
-  }
+  }, [productCat]);
   return (
     <div className={cn.admin}>
       <ToastContainer />

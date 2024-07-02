@@ -1,12 +1,13 @@
-import { useEffect } from "react";
-import { useRef } from "react";
-import { useState } from "react";
-import { useContext } from "react";
-import Instance from "../../api";
-import { GeneralContext } from "../../context";
-import cn from "./style.module.scss";
+import {useEffect, useRef,useState,useContext } from "react";
+
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+import Instance from "../../api";
+
+import { GeneralContext } from "../../context";
+
+import cn from "./style.module.scss";
 
 const EditModal = () => {
   let title = useRef();
@@ -14,7 +15,7 @@ const EditModal = () => {
   let image = useRef();
   let category = useRef();
   let [categories, setCategories] = useState([]);
-  let { showEditModal, setShowEditModal, obj, setData } =
+  let { showEditModal, setShowEditModal, obj, setData,data } =
     useContext(GeneralContext);
 
   useEffect(() => {
@@ -63,6 +64,8 @@ const EditModal = () => {
           });
           return newdata;
         });
+
+
         toast.success("Product is edited");
       })
       .catch((er) => console.log(er.message));
